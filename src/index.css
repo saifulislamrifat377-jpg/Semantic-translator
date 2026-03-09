@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Hind+Siliguri:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Hind Siliguri", ui-sans-serif, system-ui, sans-serif;
+  --font-hind: "Hind Siliguri", sans-serif;
+  --font-mono: "Hind Siliguri", ui-monospace, SFMono-Regular, monospace;
+  --font-arabic: "Amiri", serif;
+}
+
+/* Global font override */
+:root {
+  font-family: "Hind Siliguri", sans-serif !important;
+}
+
+* {
+  font-family: "Hind Siliguri", sans-serif !important;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+*::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+/* Specific override for Arabic text */
+[dir="rtl"], .font-arabic, .font-arabic * {
+  font-family: "Amiri", serif !important;
+  line-height: 1.8 !important;
+}
+
+@layer base {
+  html, body, #root {
+    font-family: "Hind Siliguri", sans-serif !important;
+    @apply bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300;
+  }
+}
